@@ -66,27 +66,96 @@ The application uses Django REST framework for API functionalities. Here's a sum
 
 **Employee Management:**
 
-* **GET /employees/:** List all employees. (Requires authentication)
-* **GET /employee/<int:id>/:** Retrieve details of a specific employee. (Requires authentication)
-* **POST /employees/:::** Create a new employee account. (Admin permission required)
+* **GET /employees/:** List all employees returned in. (Requires authentication)
 
+* **GET /employee/<int:id>/:** Retrieve details of a specific employee/ employee bio data can be edited. (Requires authentication).
+
+```bash
+{
+    "id": 1,
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "phone_number": "+167890",
+    "email": "alice.smith@example.com",
+    "password": "pbkdf2_sha256$720000$beE4nvDmvvkP110lU3Qx8M$aaa9WyKVV7VO3Hb4Tyx7dwfhu7RvaNNrncsfEfQta1A=",
+    "date": "2024-04-08",
+    "role": "Admin",
+    "age": 43,
+    "date_of_birth": "2043-03-12",
+    "home_adress": "juja"
+}
+```
+
+* **POST /employees/:::** Create a new employee account. (Admin permission required)
+```bash
+{
+        "first_name": "Testing",
+        "last_name": "1234",
+        "phone_number": "+167090",
+        "email": "testing@gmail.com",
+        "password": "testing123",
+        "date": "2024-04-08",
+        "username":"alvin",
+        "role": "Admin",
+        "age": 43,
+        "date_of_birth": "2043-03-12",
+        "home_adress": "Kenya"
+}
+
+```
 **Emergency Contacts:**
 
-* **GET /next_of_kin/<int:id>/:** Retrieve next of kin information for an employee. (Requires authentication)
-* **POST /next_of_kin/<int:id>/:** Add next of kin information for an employee. (Requires authentication)
+
+* **POST /emegencyContact/<int:id>/:** Add next of kin information for an employee. (Requires authentication) employee creted above
+```bash
+{
+        "first_name": "Testing",
+        "last_name": "1234",
+        "phone_number": "+167090",
+        "email": "testing@gmail.com",
+        "date": "2024-04-08",
+        "relationship":"alvin"
+
+}
+```
+
+* **GET /emergencyContact/<int:id>/:** Retrieve next of kin information for an employee. (Requires authentication)
+```bash
+[
+    {
+        "id": 1,
+        "first_name": "Testing",
+        "last_name": "1234",
+        "relationship": "alvin",
+        "phone_number": "+167090",
+        "email": "testing@gmail.com",
+        "employee": 1
+    },
+    {
+        "id": 2,
+        "first_name": "Testing",
+        "last_name": "1234",
+        "relationship": "alvin",
+        "phone_number": "+167090",
+        "email": "testing@gmail.com",
+        "employee": 1
+    }
+] 
+```
+
 
 **Employee Skills:**
 
 * **GET /skills/<int:id>/:** List skills for an employee. (Requires authentication)
 * **POST /skills/<int:id>/:** Add a new skill for an employee. (Requires authentication)
-* **PUT /skill/<int:id>/:** Update an existing employee skill. (Requires authentication)
+* **PUT /skill/<int:id>/:** Update an existing employee skill. (Requires authentication) 
 * **DELETE /skill/<int:id>/:** Delete an employee skill. (Requires authentication)
 
 **Leave Applications:**
 
 * **GET /leaves/<int:id>/:** List leave applications for an employee. (Requires authentication)
 * **POST /leaves/<int:id>/:** Apply for leave. (Requires authentication)
-* **PUT /leave/<int:id>/:** Approve or reject leave applications (Admin permission required)
+* **PUT /leave/<int:id>/:** Approve or reject leave applications (Admin permission required) to aprove a leave you update status to approved. Automatically it will be added with your ID.
 
 **Testing the API:**
 

@@ -3,7 +3,6 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework import status
 from .models import Employee_skills,Leave_Application,Employees,Next_of_kin
 from .serializer import All_Employees,UserSkills,Next_Of_Kin, Leave_applications
-
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
