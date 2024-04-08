@@ -10,9 +10,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
-from rest_framework.exceptions import ValidationError
-
-
 
 @api_view(['POST'])
 def login(request):
@@ -25,7 +22,6 @@ def login(request):
 
 @api_view(['GET', 'POST'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
-@permission_classes([IsAuthenticated])
 def employees_list(request):
     if request.method == 'GET':
         #GET ALL DATA

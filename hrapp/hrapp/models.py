@@ -7,14 +7,16 @@ class Employees(AbstractUser, PermissionsMixin):
     first_name = models.CharField(max_length=7)
     last_name = models.CharField(max_length=7)
     phone_number = models.CharField(max_length=7)
-    email =models.EmailField(max_length=40)
+    email =models.EmailField(max_length=40, unique=True)
     password = models.CharField(max_length=18)
     date = models.DateField(auto_now_add=True)
     role = models.CharField(max_length=10)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(null=False)
     date_of_birth = models.DateField()
     home_adress = models.CharField(max_length=70)  
-    REQUIRED_FIELDS = ['email']
+    username = models.CharField(max_length=60 ,unique=False) 
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name']
     
     def __str__(self) -> str:
         return  f"{self.first_name} {self.last_name}"
