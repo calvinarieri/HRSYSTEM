@@ -22,6 +22,7 @@ def login(request):
 
 @api_view(['GET', 'POST'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
 def employees_list(request):
     if request.method == 'GET':
         #GET ALL DATA
