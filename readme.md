@@ -13,7 +13,7 @@ This document provides instructions on setting up and running the HRMS (Human Re
 1. Clone this repository:
 
 ```bash
-git clone https://<your_repository_link>
+git clone https://github.com/calvinarieri/HRSYSTEM.git
 ```
 
 2. Navigate to the project directory:
